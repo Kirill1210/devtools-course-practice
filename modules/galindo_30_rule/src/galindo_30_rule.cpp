@@ -16,7 +16,7 @@ CellularAutomaton::CellularAutomaton(const unsigned int rows,
            state[r].resize(cols, CellState::DEAD);
     }
 }
-CellularAutomatonmaton::CellularAuto(const unsigned int rows,
+CellularAutomaton::CellularAutomaton(const unsigned int rows,
     const unsigned int cols, const std::vector<CellState>& states) {
     if (rows == 0 || cols == 0) {
           throw "The size of the columns and rows must be 0";
