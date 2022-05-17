@@ -41,7 +41,7 @@ std::string CellularStateApplication::operator()(int argc,
             return "ERROR: Incorrect state.\n" + help(argv[0]);
         states[i] = argv[3][i] == 'A' ? CellState::ALIVE : CellState::DEAD;
     }
-    CellularAuto automat(rows, cols, states);
+    CellularAutomaton automat(rows, cols, states);
 
     automat.iterate(count_iteration);
 
