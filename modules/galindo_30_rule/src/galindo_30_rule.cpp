@@ -3,7 +3,7 @@
 #include <vector>
 #include "include/galindo_30_rule.h"
 
-CellularAutomaton::CellularAutomaton(const unsigned int rows,
+CellularAuto::CellularAuto(const unsigned int rows,
     const unsigned int cols) {
     if (rows == 0 || cols == 0) {
           throw "The size of the columns and rows must be 0";
@@ -16,7 +16,7 @@ CellularAutomaton::CellularAutomaton(const unsigned int rows,
            state[r].resize(cols, CellState::DEAD);
     }
 }
-CellularAutomaton::CellularAutomaton(const unsigned int rows,
+CellularAuto::CellularAuto(const unsigned int rows,
     const unsigned int cols, const std::vector<CellState>& states) {
     if (rows == 0 || cols == 0) {
           throw "The size of the columns and rows must be 0";
@@ -40,11 +40,11 @@ void resize(std::vector<std::vector<T>>* target,
 }
 
 const std::vector<std::vector<CellState>>&
-CellularAutomaton::get_state() const {
+CellularAuto::get_state() const {
      return state;
 }
 
-void CellularAutomaton::iterate(const unsigned int iterations) {
+void CellularAuto::iterate(const unsigned int iterations) {
     unsigned int rows = static_cast<unsigned int>(state.size());
     unsigned int cells = 0;
     if (rows != 0) {
@@ -63,7 +63,7 @@ void CellularAutomaton::iterate(const unsigned int iterations) {
     }
 }
 
-CellState CellularAutomaton::rules(const int row, const int col) const {
+CellState CellularAuto::rules(const int row, const int col) const {
     if (state[row][col - 1] == CellState::DEAD &&
         state[row][col] == CellState::DEAD &&
         state[row][col + 1] == CellState::ALIVE) {
